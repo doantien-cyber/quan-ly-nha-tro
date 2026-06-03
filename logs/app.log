@@ -1,0 +1,85 @@
+[2026-06-03 09:30:15] USER=anonymous IP=::1 ACTION=TEST logger hoat dong
+[2026-06-03 09:32:02] USER=anonymous IP=::1 ACTION=TEST logger hoat dong
+[2026-06-03 09:39:03] USER=anonymous IP=::1 ACTION=LOGIN_FAILED username=admin
+[2026-06-03 09:39:21] USER=anonymous IP=::1 ACTION=LOGIN_FAILED username=nhanvien1
+[2026-06-03 09:53:29] USER=nhanvien1 IP=::1 ACTION=LOGIN_SUCCESS username=nhanvien1
+[2026-06-03 09:58:28] USER=anonymous IP=::1 ACTION=LOGIN_FAILED username=admin
+[2026-06-03 09:58:38] USER=admin IP=::1 ACTION=LOGIN_SUCCESS username=admin
+[2026-06-03 10:00:32] USER=anonymous IP=::1 ACTION=LOGIN_FAILED username=abcd
+[2026-06-03 10:08:20] USER=admin IP=::1 ACTION=LOGIN_SUCCESS username=admin
+[2026-06-03 10:08:29] USER=admin IP=::1 ACTION=VIEW_ROOMS filter=all count=6
+[2026-06-03 10:09:23] USER=admin IP=::1 ACTION=VIEW_ROOMS filter=occupied count=3
+[2026-06-03 10:09:28] USER=admin IP=::1 ACTION=VIEW_ROOMS filter=vacant count=2
+[2026-06-03 10:09:30] USER=admin IP=::1 ACTION=VIEW_ROOMS filter=maintenance count=1
+[2026-06-03 10:10:19] USER=admin IP=::1 ACTION=VIEW_ROOMS filter=all count=6
+[2026-06-03 10:10:35] USER=nhanvien1 IP=::1 ACTION=LOGIN_SUCCESS username=nhanvien1
+[2026-06-03 10:10:43] USER=nhanvien1 IP=::1 ACTION=VIEW_ROOMS filter=all count=6
+[2026-06-03 10:13:05] USER=nhanvien1 IP=::1 ACTION=VIEW_ROOMS filter=vacant count=2
+[2026-06-03 10:13:12] USER=nhanvien1 IP=::1 ACTION=VIEW_ROOMS filter=occupied count=3
+[2026-06-03 10:13:13] USER=nhanvien1 IP=::1 ACTION=VIEW_ROOMS filter=vacant count=2
+[2026-06-03 10:13:14] USER=nhanvien1 IP=::1 ACTION=VIEW_ROOMS filter=all count=6
+[2026-06-03 10:13:52] USER=nhanvien1 IP=::1 ACTION=VIEW_ROOMS filter=maintenance count=1
+[2026-06-03 10:13:54] USER=nhanvien1 IP=::1 ACTION=VIEW_ROOMS filter=all count=6
+[2026-06-03 10:15:32] USER=nhanvien1 IP=::1 ACTION=ADD_ROOM room_number=C01 floor=1 price=300000
+[2026-06-03 10:15:32] USER=nhanvien1 IP=::1 ACTION=VIEW_ROOMS filter=all count=7
+[2026-06-03 10:15:43] USER=nhanvien1 IP=::1 ACTION=VIEW_ROOMS filter=all count=7
+[2026-06-03 10:15:54] USER=nhanvien1 IP=::1 ACTION=EDIT_ROOM id=7 room_number=C01 status=vacant
+[2026-06-03 10:15:54] USER=nhanvien1 IP=::1 ACTION=VIEW_ROOMS filter=all count=7
+[2026-06-03 10:20:01] USER=nhanvien1 IP=::1 ACTION=VIEW_ROOMS filter=all count=7
+[2026-06-03 10:20:19] USER=anonymous IP=::1 ACTION=LOGIN_FAILED username=abcd
+[2026-06-03 10:21:58] USER=admin IP=::1 ACTION=LOGIN_SUCCESS username=admin
+[2026-06-03 10:44:28] USER=admin IP=::1 ACTION=VIEW_TENANTS search=(none) count=4
+[2026-06-03 10:47:05] USER=admin IP=::1 ACTION=VIEW_ROOMS filter=all count=7
+[2026-06-03 10:47:06] USER=admin IP=::1 ACTION=VIEW_TENANTS search=(none) count=4
+[2026-06-03 10:48:42] USER=admin IP=::1 ACTION=VIEW_TENANTS search=(none) count=4
+[2026-06-03 10:48:45] USER=admin IP=::1 ACTION=VIEW_TENANTS search=(none) count=4
+[2026-06-03 10:50:09] USER=admin IP=::1 ACTION=VIEW_TENANTS search=(none) count=4
+[2026-06-03 10:51:43] USER=admin IP=::1 ACTION=ADD_TENANT id_card=024683446804 name=Bùi Ngọc Quang
+[2026-06-03 10:51:43] USER=admin IP=::1 ACTION=VIEW_TENANTS search=(none) count=5
+[2026-06-03 10:54:55] USER=admin IP=::1 ACTION=VIEW_CONTRACTS filter=all count=4
+[2026-06-03 10:55:02] USER=admin IP=::1 ACTION=VIEW_TENANTS search=(none) count=5
+[2026-06-03 10:55:04] USER=admin IP=::1 ACTION=VIEW_TENANTS search=(none) count=5
+[2026-06-03 10:55:11] USER=admin IP=::1 ACTION=VIEW_CONTRACTS filter=all count=4
+[2026-06-03 11:41:25] USER=admin IP=::1 ACTION=VIEW_DASHBOARD rooms=7 occupied=3 revenue=0
+[2026-06-03 11:41:31] USER=admin IP=::1 ACTION=VIEW_DASHBOARD rooms=7 occupied=3 revenue=0
+[2026-06-03 11:41:33] USER=admin IP=::1 ACTION=VIEW_ROOMS filter=all count=7
+[2026-06-03 11:41:34] USER=admin IP=::1 ACTION=VIEW_TENANTS search=(none) count=5
+[2026-06-03 11:41:37] USER=admin IP=::1 ACTION=VIEW_CONTRACTS filter=all count=4
+[2026-06-03 11:41:39] USER=admin IP=::1 ACTION=VIEW_UTILITIES count=3
+[2026-06-03 11:42:02] USER=admin IP=::1 ACTION=VIEW_INVOICES filter_status=all filter_month=all count=3
+[2026-06-03 11:42:08] USER=admin IP=::1 ACTION=VIEW_INVOICES filter_status=all filter_month=all count=3
+[2026-06-03 11:42:31] USER=admin IP=::1 ACTION=VIEW_DASHBOARD rooms=7 occupied=3 revenue=0
+[2026-06-03 11:42:36] USER=admin IP=::1 ACTION=VIEW_ROOMS filter=all count=7
+[2026-06-03 11:42:49] USER=admin IP=::1 ACTION=VIEW_CONTRACTS filter=all count=4
+[2026-06-03 11:42:55] USER=admin IP=::1 ACTION=VIEW_DASHBOARD rooms=7 occupied=3 revenue=0
+[2026-06-03 11:42:56] USER=admin IP=::1 ACTION=VIEW_DASHBOARD rooms=7 occupied=3 revenue=0
+[2026-06-03 11:44:08] USER=admin IP=::1 ACTION=VIEW_CONTRACTS filter=active count=3
+[2026-06-03 11:44:13] USER=admin IP=::1 ACTION=VIEW_DASHBOARD rooms=7 occupied=3 revenue=0
+[2026-06-03 11:44:14] USER=admin IP=::1 ACTION=VIEW_CONTRACTS filter=active count=3
+[2026-06-03 11:44:24] USER=admin IP=::1 ACTION=VIEW_CONTRACTS filter=all count=4
+[2026-06-03 11:44:26] USER=admin IP=::1 ACTION=VIEW_UTILITIES count=3
+[2026-06-03 11:44:29] USER=admin IP=::1 ACTION=VIEW_INVOICES filter_status=all filter_month=all count=3
+[2026-06-03 11:44:38] USER=admin IP=::1 ACTION=VIEW_DASHBOARD rooms=7 occupied=3 revenue=0
+[2026-06-03 11:44:43] USER=admin IP=::1 ACTION=VIEW_DASHBOARD rooms=7 occupied=3 revenue=0
+[2026-06-03 11:44:43] USER=admin IP=::1 ACTION=VIEW_DASHBOARD rooms=7 occupied=3 revenue=0
+[2026-06-03 11:44:49] USER=admin IP=::1 ACTION=VIEW_DASHBOARD rooms=7 occupied=3 revenue=0
+[2026-06-03 11:44:50] USER=admin IP=::1 ACTION=VIEW_DASHBOARD rooms=7 occupied=3 revenue=0
+[2026-06-03 11:45:29] USER=nhanvien1 IP=::1 ACTION=LOGIN_SUCCESS username=nhanvien1
+[2026-06-03 11:45:29] USER=nhanvien1 IP=::1 ACTION=VIEW_DASHBOARD rooms=7 occupied=3 revenue=0
+[2026-06-03 11:45:34] USER=nhanvien1 IP=::1 ACTION=VIEW_ROOMS filter=all count=7
+[2026-06-03 11:45:42] USER=nhanvien1 IP=::1 ACTION=VIEW_ROOMS filter=all count=7
+[2026-06-03 11:45:48] USER=nhanvien1 IP=::1 ACTION=EDIT_ROOM id=7 room_number=C01 status=occupied
+[2026-06-03 11:45:48] USER=nhanvien1 IP=::1 ACTION=VIEW_ROOMS filter=all count=7
+[2026-06-03 11:45:54] USER=nhanvien1 IP=::1 ACTION=VIEW_ROOMS filter=all count=7
+[2026-06-03 11:46:02] USER=nhanvien1 IP=::1 ACTION=EDIT_ROOM id=7 room_number=C01 status=maintenance
+[2026-06-03 11:46:02] USER=nhanvien1 IP=::1 ACTION=VIEW_ROOMS filter=all count=7
+[2026-06-03 11:50:44] USER=nhanvien1 IP=::1 ACTION=VIEW_TENANTS search=(none) count=5
+[2026-06-03 11:50:46] USER=nhanvien1 IP=::1 ACTION=VIEW_CONTRACTS filter=all count=4
+[2026-06-03 11:50:49] USER=nhanvien1 IP=::1 ACTION=VIEW_DASHBOARD rooms=7 occupied=3 revenue=0
+[2026-06-03 11:50:52] USER=nhanvien1 IP=::1 ACTION=VIEW_DASHBOARD rooms=7 occupied=3 revenue=0
+[2026-06-03 11:50:56] USER=nhanvien1 IP=::1 ACTION=VIEW_ROOMS filter=all count=7
+[2026-06-03 11:50:57] USER=nhanvien1 IP=::1 ACTION=VIEW_DASHBOARD rooms=7 occupied=3 revenue=0
+[2026-06-03 11:55:57] USER=nhanvien1 IP=::1 ACTION=VIEW_TENANTS search=(none) count=5
+[2026-06-03 11:56:08] USER=nhanvien1 IP=::1 ACTION=VIEW_TENANTS search=(none) count=5
+[2026-06-03 11:56:17] USER=nhanvien1 IP=::1 ACTION=VIEW_CONTRACTS filter=all count=4
+[2026-06-03 12:00:04] USER=nhanvien1 IP=::1 ACTION=VIEW_DASHBOARD rooms=7 occupied=3 revenue=0

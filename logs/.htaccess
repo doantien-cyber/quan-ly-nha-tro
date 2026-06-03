@@ -1,0 +1,3 @@
+# Chặn mọi truy cập trực tiếp từ browser vào thư mục này
+Order deny,allow
+Deny from all

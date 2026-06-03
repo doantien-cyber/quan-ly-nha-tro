@@ -1,0 +1,14 @@
+# ── Chặn truy cập trực tiếp vào config/ và logs/ ─────────────
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^(config|logs)(/.*)?$ - [F,L]
+</IfModule>
+
+# ── Tắt hiển thị danh sách thư mục ───────────────────────────
+Options -Indexes
+
+# ── Chặn truy cập file .htaccess và file ẩn ──────────────────
+<FilesMatch "^\.">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
