@@ -36,42 +36,92 @@ if (isset($_GET['action']) && $_GET['action'] === 'logout') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Đăng Nhập — <?= APP_NAME ?></title>
-    <link rel="stylesheet" href="<?= BASE_URL ?>/assets/css/style.css">
-    <style>
-        body { display: flex; justify-content: center; align-items: center; min-height: 100vh; background: #f0f2f5; margin: 0; }
-        .login-card { background: #fff; padding: 2rem 2.5rem; border-radius: 8px; box-shadow: 0 2px 12px rgba(0,0,0,.15); width: 100%; max-width: 380px; }
-        .login-card h1 { margin: 0 0 1.5rem; font-size: 1.4rem; text-align: center; color: #1a1a2e; }
-        .form-group { margin-bottom: 1rem; }
-        .form-group label { display: block; margin-bottom: .35rem; font-size: .9rem; color: #444; }
-        .form-group input { width: 100%; padding: .6rem .75rem; border: 1px solid #ccc; border-radius: 5px; font-size: 1rem; box-sizing: border-box; }
-        .form-group input:focus { outline: none; border-color: #4a6fa5; box-shadow: 0 0 0 3px rgba(74,111,165,.15); }
-        .btn-login { width: 100%; padding: .7rem; background: #4a6fa5; color: #fff; border: none; border-radius: 5px; font-size: 1rem; cursor: pointer; margin-top: .5rem; }
-        .btn-login:hover { background: #3a5a8a; }
-        .alert-error { background: #fde8e8; color: #c0392b; border: 1px solid #f5c6c6; border-radius: 5px; padding: .6rem .9rem; margin-bottom: 1rem; font-size: .9rem; }
-    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
 </head>
-<body>
-<div class="login-card">
-    <h1><?= APP_NAME ?></h1>
+<body class="min-h-screen bg-[#f0f7ff] flex items-center justify-center font-sans antialiased">
 
-    <?php if ($error !== ''): ?>
-        <div class="alert-error"><?= htmlspecialchars($error) ?></div>
-    <?php endif; ?>
+<div class="w-full max-w-sm px-4">
 
-    <form method="POST" action="">
-        <div class="form-group">
-            <label for="username">Tên đăng nhập</label>
-            <input type="text" id="username" name="username"
-                   value="<?= htmlspecialchars($_POST['username'] ?? '') ?>"
-                   autocomplete="username" autofocus required>
+    <!-- Card -->
+    <div class="bg-white rounded-2xl shadow-[0_4px_24px_rgba(59,130,246,0.1)] border border-blue-100 px-8 py-9">
+
+        <!-- Header -->
+        <div class="text-center mb-7">
+            <div class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-blue-50 border border-blue-200 mb-4">
+                <svg class="w-6 h-6 text-blue-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                          d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+                </svg>
+            </div>
+            <h1 class="text-[1.15rem] font-bold text-slate-900 tracking-tight"><?= APP_NAME ?></h1>
+            <p class="text-xs text-slate-400 mt-1">Đăng nhập để tiếp tục</p>
         </div>
-        <div class="form-group">
-            <label for="password">Mật khẩu</label>
-            <input type="password" id="password" name="password"
-                   autocomplete="current-password" required>
+
+        <!-- Error -->
+        <?php if ($error !== ''): ?>
+        <div class="mb-5 px-4 py-3 rounded-xl bg-red-50 border border-red-200 text-red-700 text-sm flex items-start gap-2">
+            <svg class="w-4 h-4 mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd"
+                      d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+                      clip-rule="evenodd"/>
+            </svg>
+            <?= htmlspecialchars($error) ?>
         </div>
-        <button type="submit" class="btn-login">Đăng Nhập</button>
-    </form>
+        <?php endif; ?>
+
+        <!-- Form -->
+        <form method="POST" action="" class="space-y-4">
+            <div>
+                <label for="username" class="block text-xs font-600 text-slate-600 mb-1.5 font-semibold">
+                    Tên đăng nhập
+                </label>
+                <input type="text" id="username" name="username"
+                       value="<?= htmlspecialchars($_POST['username'] ?? '') ?>"
+                       autocomplete="username" autofocus required
+                       class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm text-slate-800
+                              bg-white outline-none transition
+                              focus:border-blue-400 focus:ring-3 focus:ring-blue-100
+                              placeholder:text-slate-300"
+                       placeholder="Nhập tên đăng nhập">
+            </div>
+            <div>
+                <label for="password" class="block text-xs font-600 text-slate-600 mb-1.5 font-semibold">
+                    Mật khẩu
+                </label>
+                <input type="password" id="password" name="password"
+                       autocomplete="current-password" required
+                       class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm text-slate-800
+                              bg-white outline-none transition
+                              focus:border-blue-400 focus:ring-3 focus:ring-blue-100
+                              placeholder:text-slate-300"
+                       placeholder="••••••••">
+            </div>
+            <button type="submit"
+                    class="w-full mt-2 py-2.5 px-4 rounded-xl bg-blue-500 hover:bg-blue-600 active:bg-blue-700
+                           text-white text-sm font-semibold tracking-wide
+                           transition-colors duration-150 cursor-pointer border-none">
+                Đăng Nhập
+            </button>
+        </form>
+
+    </div>
+
+    <p class="text-center text-xs text-slate-400 mt-5">
+        &copy; <?= date('Y') ?> <?= APP_NAME ?>
+    </p>
 </div>
+
 </body>
 </html>

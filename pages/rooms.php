@@ -158,55 +158,6 @@ $status_label = ['vacant' => 'Trống', 'occupied' => 'Đang thuê', 'maintenanc
 
 include __DIR__ . '/../includes/header.php';
 ?>
-<style>
-.page-header   { display:flex; justify-content:space-between; align-items:center; margin-bottom:1.2rem; }
-.page-title    { font-size:1.4rem; font-weight:700; color:#1a1a2e; margin:0; }
-.filter-tabs   { display:flex; gap:.5rem; flex-wrap:wrap; margin-bottom:1rem; }
-.filter-tab    { padding:.35rem .9rem; border-radius:20px; text-decoration:none; font-size:.85rem;
-                 border:1px solid #ccc; color:#555; background:#fff; }
-.filter-tab:hover, .filter-tab.active { background:#4a6fa5; color:#fff; border-color:#4a6fa5; }
-.filter-count  { font-size:.75rem; background:rgba(255,255,255,.3); border-radius:10px;
-                 padding:0 6px; margin-left:4px; }
-.alert         { padding:.7rem 1rem; border-radius:6px; margin-bottom:1rem; font-size:.9rem; }
-.alert-success { background:#e6f4ea; color:#2d6a4f; border:1px solid #b7ddc6; }
-.alert-error   { background:#fde8e8; color:#c0392b; border:1px solid #f5c6c6; }
-.card          { background:#fff; border-radius:8px; box-shadow:0 1px 6px rgba(0,0,0,.1); padding:1.2rem 1.5rem; margin-bottom:1.5rem; }
-.card-title    { font-size:1rem; font-weight:600; margin:0 0 1rem; color:#333; }
-table          { width:100%; border-collapse:collapse; font-size:.9rem; }
-th             { background:#f5f6fa; text-align:left; padding:.6rem .9rem; color:#555; font-weight:600;
-                 border-bottom:2px solid #e0e0e0; }
-td             { padding:.6rem .9rem; border-bottom:1px solid #f0f0f0; vertical-align:middle; }
-tr:last-child td { border-bottom:none; }
-tr:hover td    { background:#fafbff; }
-.badge         { display:inline-block; padding:.2rem .65rem; border-radius:12px; font-size:.78rem; font-weight:600; }
-.badge-vacant      { background:#e8f5e9; color:#2e7d32; }
-.badge-occupied    { background:#e3f2fd; color:#1565c0; }
-.badge-maintenance { background:#fff3e0; color:#e65100; }
-.btn           { display:inline-block; padding:.3rem .75rem; border-radius:5px; font-size:.82rem;
-                 text-decoration:none; cursor:pointer; border:none; }
-.btn-edit      { background:#4a6fa5; color:#fff; }
-.btn-edit:hover{ background:#3a5a8a; }
-.btn-delete    { background:#e74c3c; color:#fff; }
-.btn-delete:hover{ background:#c0392b; }
-.btn-delete-disabled { background:#ccc; color:#888; cursor:not-allowed; }
-.btn-primary   { background:#4a6fa5; color:#fff; padding:.5rem 1.2rem; font-size:.9rem; }
-.btn-primary:hover { background:#3a5a8a; }
-.btn-secondary { background:#6c757d; color:#fff; padding:.5rem 1rem; font-size:.9rem; }
-.btn-secondary:hover { background:#5a6268; }
-.form-grid     { display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:.9rem; }
-.form-group    { display:flex; flex-direction:column; gap:.3rem; }
-.form-group label  { font-size:.85rem; font-weight:600; color:#444; }
-.form-group input,
-.form-group select,
-.form-group textarea { padding:.5rem .7rem; border:1px solid #ccc; border-radius:5px; font-size:.9rem; }
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus { outline:none; border-color:#4a6fa5; box-shadow:0 0 0 3px rgba(74,111,165,.12); }
-.form-group-full { grid-column:1/-1; }
-.form-actions  { grid-column:1/-1; display:flex; gap:.6rem; padding-top:.3rem; }
-.price-cell    { font-weight:600; color:#1a1a2e; }
-.empty-state   { text-align:center; padding:2rem; color:#888; font-style:italic; }
-</style>
 
 <div class="page-header">
     <h1 class="page-title">Quản Lý Phòng</h1>

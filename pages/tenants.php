@@ -183,58 +183,6 @@ ghi_log('VIEW_TENANTS', 'search=' . ($search ?: '(none)') . ' count=' . count($t
 
 include __DIR__ . '/../includes/header.php';
 ?>
-<style>
-.page-header   { display:flex; justify-content:space-between; align-items:center; margin-bottom:1.2rem; }
-.page-title    { font-size:1.4rem; font-weight:700; color:#1a1a2e; margin:0; }
-.search-bar    { display:flex; gap:.5rem; margin-bottom:1rem; }
-.search-bar input  { flex:1; max-width:360px; padding:.5rem .8rem; border:1px solid #ccc;
-                     border-radius:5px; font-size:.9rem; }
-.search-bar input:focus { outline:none; border-color:#4a6fa5; box-shadow:0 0 0 3px rgba(74,111,165,.12); }
-.search-bar button { padding:.5rem 1rem; background:#4a6fa5; color:#fff; border:none;
-                     border-radius:5px; cursor:pointer; font-size:.9rem; }
-.search-bar button:hover { background:#3a5a8a; }
-.search-bar a  { padding:.5rem .9rem; background:#6c757d; color:#fff; border-radius:5px;
-                 text-decoration:none; font-size:.9rem; }
-.search-bar a:hover { background:#5a6268; }
-.search-info   { font-size:.85rem; color:#666; margin-bottom:.8rem; }
-.alert         { padding:.7rem 1rem; border-radius:6px; margin-bottom:1rem; font-size:.9rem; }
-.alert-success { background:#e6f4ea; color:#2d6a4f; border:1px solid #b7ddc6; }
-.alert-error   { background:#fde8e8; color:#c0392b; border:1px solid #f5c6c6; }
-.card          { background:#fff; border-radius:8px; box-shadow:0 1px 6px rgba(0,0,0,.1);
-                 padding:1.2rem 1.5rem; margin-bottom:1.5rem; }
-.card-title    { font-size:1rem; font-weight:600; margin:0 0 1rem; color:#333; }
-table          { width:100%; border-collapse:collapse; font-size:.9rem; }
-th             { background:#f5f6fa; text-align:left; padding:.6rem .9rem; color:#555;
-                 font-weight:600; border-bottom:2px solid #e0e0e0; }
-td             { padding:.6rem .9rem; border-bottom:1px solid #f0f0f0; vertical-align:middle; }
-tr:last-child td { border-bottom:none; }
-tr:hover td    { background:#fafbff; }
-.badge-active  { display:inline-block; padding:.2rem .6rem; border-radius:12px; font-size:.78rem;
-                 font-weight:600; background:#e3f2fd; color:#1565c0; }
-.btn           { display:inline-block; padding:.3rem .75rem; border-radius:5px; font-size:.82rem;
-                 text-decoration:none; cursor:pointer; border:none; }
-.btn-edit      { background:#4a6fa5; color:#fff; }
-.btn-edit:hover { background:#3a5a8a; }
-.btn-delete    { background:#e74c3c; color:#fff; }
-.btn-delete:hover { background:#c0392b; }
-.btn-delete-disabled { background:#ccc; color:#888; cursor:not-allowed; }
-.btn-primary   { background:#4a6fa5; color:#fff; padding:.5rem 1.2rem; font-size:.9rem; }
-.btn-primary:hover { background:#3a5a8a; }
-.btn-secondary { background:#6c757d; color:#fff; padding:.5rem 1rem; font-size:.9rem; }
-.btn-secondary:hover { background:#5a6268; }
-.form-grid     { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:.9rem; }
-.form-group    { display:flex; flex-direction:column; gap:.3rem; }
-.form-group label { font-size:.85rem; font-weight:600; color:#444; }
-.form-group input,
-.form-group textarea { padding:.5rem .7rem; border:1px solid #ccc; border-radius:5px; font-size:.9rem; }
-.form-group input:focus,
-.form-group textarea:focus { outline:none; border-color:#4a6fa5; box-shadow:0 0 0 3px rgba(74,111,165,.12); }
-.form-group-full { grid-column:1/-1; }
-.form-actions  { grid-column:1/-1; display:flex; gap:.6rem; padding-top:.3rem; }
-.actions-cell  { display:flex; gap:6px; flex-wrap:wrap; }
-.empty-state   { text-align:center; padding:2rem; color:#888; font-style:italic; }
-.hint          { font-size:.78rem; color:#888; margin-top:.2rem; }
-</style>
 
 <div class="page-header">
     <h1 class="page-title">Quản Lý Khách Thuê</h1>

@@ -1,6 +1,6 @@
 </main>
-<footer class="footer">
-    <p>&copy; <?= date('Y') ?> <?= APP_NAME ?>. Hệ thống quản lý nhà trọ.</p>
+<footer class="app-footer">
+    &copy; <?= date('Y') ?> <?= APP_NAME ?>. Hệ thống quản lý nhà trọ.
 </footer>
 </body>
 </html>

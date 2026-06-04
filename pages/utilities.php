@@ -113,63 +113,6 @@ ghi_log('VIEW_UTILITIES', 'count=' . count($readings));
 
 include __DIR__ . '/../includes/header.php';
 ?>
-<style>
-.page-title    { font-size:1.4rem; font-weight:700; color:#1a1a2e; margin:0 0 1.2rem; }
-.alert         { padding:.7rem 1rem; border-radius:6px; margin-bottom:1rem; font-size:.9rem; }
-.alert-success { background:#e6f4ea; color:#2d6a4f; border:1px solid #b7ddc6; }
-.alert-error   { background:#fde8e8; color:#c0392b; border:1px solid #f5c6c6; }
-.card          { background:#fff; border-radius:8px; box-shadow:0 1px 6px rgba(0,0,0,.1);
-                 padding:1.2rem 1.5rem; margin-bottom:1.5rem; }
-.card-title    { font-size:1rem; font-weight:600; margin:0 0 1rem; color:#333; }
-
-/* Form nhập */
-.form-grid     { display:grid; grid-template-columns:repeat(auto-fill,minmax(190px,1fr)); gap:.9rem; }
-.form-group    { display:flex; flex-direction:column; gap:.3rem; }
-.form-group label { font-size:.85rem; font-weight:600; color:#444; }
-.form-group input,
-.form-group select { padding:.5rem .7rem; border:1px solid #ccc; border-radius:5px; font-size:.9rem; }
-.form-group input:focus,
-.form-group select:focus { outline:none; border-color:#4a6fa5; box-shadow:0 0 0 3px rgba(74,111,165,.12); }
-.form-group-full { grid-column:1/-1; }
-.form-actions  { grid-column:1/-1; display:flex; gap:.6rem; align-items:center; padding-top:.3rem; }
-.hint          { font-size:.78rem; color:#888; }
-.rate-badge    { display:inline-block; background:#f0f4ff; border:1px solid #c5d3f0;
-                 border-radius:5px; padding:.3rem .7rem; font-size:.82rem; color:#3a5a8a; font-weight:600; }
-.btn-primary   { background:#4a6fa5; color:#fff; padding:.5rem 1.2rem; font-size:.9rem;
-                 border:none; border-radius:5px; cursor:pointer; }
-.btn-primary:hover { background:#3a5a8a; }
-
-/* Preview tiêu thụ */
-.preview-box   { grid-column:1/-1; background:#f8faff; border:1px solid #d0dcf5;
-                 border-radius:8px; padding:1rem 1.2rem; display:none; }
-.preview-box.visible { display:block; }
-.preview-title { font-size:.85rem; font-weight:600; color:#4a6fa5; margin:0 0 .7rem; }
-.preview-grid  { display:grid; grid-template-columns:1fr 1fr; gap:.5rem .8rem; }
-.preview-row   { display:flex; justify-content:space-between; font-size:.88rem; }
-.preview-label { color:#555; }
-.preview-value { font-weight:600; color:#1a1a2e; }
-.preview-total { grid-column:1/-1; border-top:1px dashed #c5d3f0; padding-top:.6rem;
-                 display:flex; justify-content:space-between; font-size:.95rem; margin-top:.3rem; }
-.preview-total .preview-value { color:#2e7d32; font-size:1rem; }
-.preview-warn  { grid-column:1/-1; font-size:.82rem; color:#e67e22; margin-top:.4rem; }
-
-/* Bảng lịch sử */
-.month-group   { margin-bottom:1.2rem; }
-.month-heading { font-size:.95rem; font-weight:700; color:#4a6fa5;
-                 background:#f0f4ff; padding:.45rem .9rem; border-radius:6px;
-                 margin-bottom:.5rem; border-left:3px solid #4a6fa5; }
-table          { width:100%; border-collapse:collapse; font-size:.88rem; }
-th             { background:#f5f6fa; text-align:left; padding:.55rem .8rem; color:#555;
-                 font-weight:600; border-bottom:2px solid #e0e0e0; white-space:nowrap; }
-td             { padding:.55rem .8rem; border-bottom:1px solid #f0f0f0; vertical-align:middle; }
-tr:last-child td { border-bottom:none; }
-tr:hover td    { background:#fafbff; }
-.num           { text-align:right; font-variant-numeric:tabular-nums; }
-.fee-cell      { text-align:right; font-weight:600; color:#1a1a2e; }
-.empty-state   { text-align:center; padding:2rem; color:#888; font-style:italic; }
-.no-occupied   { background:#fff8e1; border:1px solid #ffe082; border-radius:6px;
-                 padding:.8rem 1rem; font-size:.9rem; color:#795548; }
-</style>
 
 <h1 class="page-title">Nhập Chỉ Số Điện Nước</h1>
 
