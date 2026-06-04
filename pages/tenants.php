@@ -102,8 +102,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && ($_POST['action'] ?? '') === 'edit'
     exit;
 }
 
-// ── GET: xóa khách thuê ───────────────────────────────────────
+// ── GET: xóa khách thuê (admin only) ─────────────────────────
 if ($_SERVER['REQUEST_METHOD'] === 'GET' && ($_GET['action'] ?? '') === 'delete') {
+    block_staff('DELETE_TENANT');
     $id = (int)($_GET['id'] ?? 0);
     if ($id < 1) {
         $_SESSION['error'] = 'ID khách thuê không hợp lệ.';
@@ -304,15 +305,15 @@ tr:hover td    { background:#fafbff; }
                 <td class="actions-cell">
                     <a href="tenants.php?action=edit&id=<?= $t['id'] ?><?= $search !== '' ? '&q=' . urlencode($search) : '' ?>"
                        class="btn btn-edit">Sửa</a>
-                    <?php if (!$has_active): ?>
+                    <?php if ($has_active): ?>
+                        <span class="btn btn-delete-disabled"
+                              title="Không thể xóa: đang có hợp đồng active">Xóa</span>
+                    <?php elseif (is_admin()): ?>
                         <a href="tenants.php?action=delete&id=<?= $t['id'] ?>"
                            class="btn btn-delete"
                            onclick="return confirm('Xóa khách thuê <?= htmlspecialchars($t['full_name'], ENT_QUOTES) ?>? Hành động này không thể hoàn tác.')">
                             Xóa
                         </a>
-                    <?php else: ?>
-                        <span class="btn btn-delete-disabled"
-                              title="Không thể xóa: đang có hợp đồng active">Xóa</span>
                     <?php endif; ?>
                 </td>
             </tr>

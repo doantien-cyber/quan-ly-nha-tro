@@ -52,10 +52,27 @@ $current_page = basename($_SERVER['PHP_SELF']);
                 Hóa Đơn
             </a>
         </li>
+        <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin'): ?>
+        <li>
+            <a href="<?= BASE_URL ?>/pages/bao-cao.php"
+               class="<?= $current_page === 'bao-cao.php' ? 'active' : '' ?>">
+                Báo Cáo
+            </a>
+        </li>
+        <?php endif; ?>
     </ul>
     <div class="navbar-user">
-        <span>Xin chào, <strong><?= htmlspecialchars($_SESSION['full_name'] ?? '') ?></strong></span>
-        <a href="<?= BASE_URL ?>/login.php?action=logout" class="btn-logout">Đăng Xuất</a>
+        <span>
+            Xin chào, <strong><?= htmlspecialchars($_SESSION['full_name'] ?? '') ?></strong>
+            <?php if (isset($_SESSION['role']) && $_SESSION['role'] !== 'admin'): ?>
+                <span style="display:inline-block;background:#e3f2fd;color:#1565c0;
+                             border-radius:10px;font-size:.72rem;padding:.1rem .5rem;
+                             font-weight:600;margin-left:.3rem;vertical-align:middle;">
+                    Staff
+                </span>
+            <?php endif; ?>
+        </span>
+        <a href="<?= BASE_URL ?>/logout.php?action=logout" class="btn-logout">Đăng Xuất</a>
     </div>
 </nav>
 <main class="main-content">

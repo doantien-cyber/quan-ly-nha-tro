@@ -213,6 +213,19 @@ tr:hover td   { background:#fafbff; }
         <div class="rev-amount orange"><?= number_format((int)$pending['pending_amount']) ?> đ</div>
         <div class="rev-detail"><?= (int)$pending['pending_count'] ?> hóa đơn đang chờ</div>
     </div>
+    <?php if (is_admin()): ?>
+    <div class="rev-card" style="display:flex;flex-direction:column;justify-content:center;">
+        <div class="rev-label">Báo cáo doanh thu</div>
+        <div style="margin-top:.5rem;">
+            <a href="<?= BASE_URL ?>/pages/bao-cao.php"
+               style="display:inline-block;background:#4a6fa5;color:#fff;padding:.45rem 1rem;
+                      border-radius:6px;text-decoration:none;font-size:.88rem;font-weight:600;">
+                Xem báo cáo đầy đủ →
+            </a>
+        </div>
+        <div class="rev-detail" style="margin-top:.4rem;">Thống kê doanh thu theo tháng</div>
+    </div>
+    <?php endif; ?>
     <div class="rev-card">
         <div class="rev-label">Tỷ lệ lấp đầy</div>
         <div class="rev-amount" style="color:#4a6fa5;"><?= $occupancy_rate ?>%</div>

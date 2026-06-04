@@ -14,6 +14,7 @@ unset($_SESSION['success'], $_SESSION['error']);
 
 // ── POST: thêm phòng mới ──────────────────────────────────────
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && ($_POST['action'] ?? '') === 'add') {
+    require_admin();
     $room_number     = trim($_POST['room_number'] ?? '');
     $floor           = (int)($_POST['floor'] ?? 0);
     $area_m2         = (float)str_replace(',', '.', $_POST['area_m2'] ?? '0');
@@ -50,6 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && ($_POST['action'] ?? '') === 'add')
 
 // ── POST: sửa phòng ───────────────────────────────────────────
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && ($_POST['action'] ?? '') === 'edit') {
+    require_admin();
     $id              = (int)($_POST['id'] ?? 0);
     $room_number     = trim($_POST['room_number'] ?? '');
     $floor           = (int)($_POST['floor'] ?? 0);
@@ -87,6 +89,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && ($_POST['action'] ?? '') === 'edit'
 
 // ── GET: xóa phòng (chỉ khi vacant) ──────────────────────────
 if ($_SERVER['REQUEST_METHOD'] === 'GET' && ($_GET['action'] ?? '') === 'delete') {
+    require_admin();
     $id = (int)($_GET['id'] ?? 0);
     if ($id < 1) {
         $_SESSION['error'] = 'ID phòng không hợp lệ.';
@@ -119,9 +122,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && ($_GET['action'] ?? '') === 'delete'
 $valid_statuses = ['vacant', 'occupied', 'maintenance'];
 $filter_status  = in_array($_GET['status'] ?? '', $valid_statuses, true) ? $_GET['status'] : '';
 
-// Nếu đang ở chế độ edit, load phòng cần sửa
+// Nếu đang ở chế độ edit, load phòng cần sửa (admin only)
 $edit_room = null;
 if (($_GET['action'] ?? '') === 'edit' && isset($_GET['id'])) {
+    require_admin();
     $stmt = $pdo->prepare('SELECT * FROM rooms WHERE id = ?');
     $stmt->execute([(int)$_GET['id']]);
     $edit_room = $stmt->fetch() ?: null;
@@ -267,16 +271,20 @@ tr:hover td    { background:#fafbff; }
                 </td>
                 <td><?= htmlspecialchars($r['notes'] ?? '—') ?></td>
                 <td style="display:flex;gap:6px;flex-wrap:wrap;">
-                    <a href="rooms.php?action=edit&id=<?= $r['id'] ?><?= $filter_status !== '' ? '&status=' . urlencode($filter_status) : '' ?>"
-                       class="btn btn-edit">Sửa</a>
-                    <?php if ($r['status'] === 'vacant'): ?>
-                        <a href="rooms.php?action=delete&id=<?= $r['id'] ?>"
-                           class="btn btn-delete"
-                           onclick="return confirm('Xóa phòng <?= htmlspecialchars($r['room_number'], ENT_QUOTES) ?>? Hành động này không thể hoàn tác.')">
-                            Xóa
-                        </a>
+                    <?php if (is_admin()): ?>
+                        <a href="rooms.php?action=edit&id=<?= $r['id'] ?><?= $filter_status !== '' ? '&status=' . urlencode($filter_status) : '' ?>"
+                           class="btn btn-edit">Sửa</a>
+                        <?php if ($r['status'] === 'vacant'): ?>
+                            <a href="rooms.php?action=delete&id=<?= $r['id'] ?>"
+                               class="btn btn-delete"
+                               onclick="return confirm('Xóa phòng <?= htmlspecialchars($r['room_number'], ENT_QUOTES) ?>? Hành động này không thể hoàn tác.')">
+                                Xóa
+                            </a>
+                        <?php else: ?>
+                            <span class="btn btn-delete-disabled" title="Chỉ xóa được phòng đang trống">Xóa</span>
+                        <?php endif; ?>
                     <?php else: ?>
-                        <span class="btn btn-delete-disabled" title="Chỉ xóa được phòng đang trống">Xóa</span>
+                        <span style="color:#aaa;font-size:.82rem">Chỉ xem</span>
                     <?php endif; ?>
                 </td>
             </tr>
@@ -286,7 +294,8 @@ tr:hover td    { background:#fafbff; }
     <?php endif; ?>
 </div>
 
-<!-- Form thêm / sửa phòng -->
+<!-- Form thêm / sửa phòng (chỉ admin) -->
+<?php if (is_admin()): ?>
 <div class="card">
     <?php if ($edit_room): ?>
         <!-- Chế độ sửa -->
@@ -381,5 +390,6 @@ tr:hover td    { background:#fafbff; }
         </form>
     <?php endif; ?>
 </div>
+<?php endif; ?>
 
 <?php include __DIR__ . '/../includes/footer.php'; ?>

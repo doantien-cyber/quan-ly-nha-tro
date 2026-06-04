@@ -85,8 +85,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && ($_POST['action'] ?? '') === 'creat
     exit;
 }
 
-// ── GET: kết thúc hợp đồng ────────────────────────────────────
+// ── GET: kết thúc hợp đồng (admin only) ──────────────────────
 if ($_SERVER['REQUEST_METHOD'] === 'GET' && ($_GET['action'] ?? '') === 'terminate') {
+    require_admin();
     $id = (int)($_GET['id'] ?? 0);
     if ($id < 1) {
         $_SESSION['error'] = 'ID hợp đồng không hợp lệ.';
@@ -331,7 +332,7 @@ tr:hover td    { background:#fafbff; }
                     </span>
                 </td>
                 <td>
-                    <?php if ($c['status'] === 'active'): ?>
+                    <?php if ($c['status'] === 'active' && is_admin()): ?>
                         <a href="contracts.php?action=terminate&id=<?= $c['id'] ?>"
                            class="btn btn-terminate"
                            onclick="return confirm('Kết thúc hợp đồng phòng <?= htmlspecialchars($c['room_number'], ENT_QUOTES) ?> của <?= htmlspecialchars($c['tenant_name'], ENT_QUOTES) ?>?\nPhòng sẽ được đặt lại về trạng thái Trống.')">
